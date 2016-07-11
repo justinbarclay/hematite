@@ -2,7 +2,7 @@
 #include "basic.h"
 #include "ethernet.h"
 
-//Return a struct eth_hdr pointer
+// function that returns a struct pointer of type eth_hdr
 struct eth_hdr* init_eth_hdr(char* buf)
 {
     //typecast the char buf pointer to a eth_hdr pointer
