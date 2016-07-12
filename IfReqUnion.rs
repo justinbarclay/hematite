@@ -48,3 +48,36 @@ impl IfReqUnion {
         (self.data[1] as c_short))
     }
 }
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Public facing IfReq struct
+//
+///////////////////////////////////////////////////////////////////////////////
+pub struct IfReq {
+    ifr_name: [c_char; IFNAMESIZE],
+    union: IfReqUnion,
+}
+
+impl IfReq {
+    // parse the IfReqUnion based on what we think is in there.
+    pub fn ifr_hwaddr(&self) -> sockaddr {
+        self.union.as_sockaddr()
+    }
+
+    pub fn ifr_dstaddr(&self) -> sockaddr{
+        self.union.as_sockaddr()
+    }
+
+    pub fn ifr_broadaddr(&self) -> c_int {
+        self.union.as_int()
+    }
+
+    pub fn ifr_media(&self) -> c_int {
+        self.union.as_int()
+    }
+
+    pub ifr_flags(&self -> c_short){
+        self.union.as_short()
+    }
+}
