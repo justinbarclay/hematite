@@ -77,7 +77,14 @@ impl IfReq {
         self.union.as_int()
     }
 
-    pub ifr_flags(&self -> c_short){
+    pub fn ifr_flags(&self -> c_short){
         self.union.as_short()
+    }
+}
+
+// zero out data as default
+impl Default for IfReqUnion {
+    fn default() -> IfReqUnion {
+        IfReqUnion { data: [0; IFREQUNIONSIZE] }
     }
 }
