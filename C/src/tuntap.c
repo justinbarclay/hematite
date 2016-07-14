@@ -58,7 +58,7 @@ static int tun_alloc(char *dev)
         close(fd);
         return err;
     }
-
+    // Whats happenig here
     strcpy(dev, ifr.ifr_name);
     return fd;
 }
