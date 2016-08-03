@@ -1,3 +1,4 @@
 /C/Build/*.o
 /C/lvl-ip
 /Rust/Hematite/target
+/.vscode

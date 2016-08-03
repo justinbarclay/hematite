@@ -51,7 +51,6 @@ static int tun_alloc(char *dev)
     if(*dev){
         strncpy(ifr.ifr_name, dev, IFNAMSIZ);
     }
-
     //input output control, set the ioctl to TUN/TAP flag, and pass through IFR
     if( (err = ioctl(fd, TUNSETIFF, (void *) &ifr)) < 0) {
         print_error("ERR: Could not ioctl tun: %s\n", strerror(errno));
